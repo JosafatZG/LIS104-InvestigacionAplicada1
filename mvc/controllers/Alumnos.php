@@ -71,14 +71,10 @@
 				$this->index();
 			else:
 				$alumnos = new Alumnos_model();
-				$alumnos->insertar($carnet, $dui, $nombre, $apellido, $carrera);
+				$alumnos->modificar($carnet, $dui, $nombre, $apellido, $carrera);
 				$data["titulo"] = "Alumnos";
 				$this->index();
 			endif;
-			$alumnos = new Alumnos_model();
-			$alumnos->modificar($carnet, $dui, $nombre, $apellido, $carrera);
-			$data["titulo"] = "Alumnos";
-			$this->index();
 		}
 		
 		public function eliminar($carnet){
