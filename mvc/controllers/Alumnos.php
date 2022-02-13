@@ -28,11 +28,20 @@
 			$nombre = $_POST['nombre'];
 			$apellido = $_POST['apellido'];
 			$carrera = $_POST['carrera'];
-			
-			$alumnos = new Alumnos_model();
-			$alumnos->insertar($carnet, $dui, $nombre, $apellido, $carrera);
-			$data["titulo"] = "Alumnos";
-			$this->index();
+			if(!preg_match("/^([a-zA-Z]{2}+[0-9]{6})$/",$carnet)):
+				$mensaje = "Formato de carnet incorrecto";
+				echo "<script type='text/javascript'>alert('$mensaje');</script>";
+				$this->index();
+			elseif(!preg_match("/^([0-9]{8}-[0-9]{1})$/",$dui)):
+				$mensaje = "Formato de DUI incorrecto";
+				echo "<script type='text/javascript'>alert('$mensaje');</script>";
+				$this->index();
+			else:
+				$alumnos = new Alumnos_model();
+				$alumnos->insertar($carnet, $dui, $nombre, $apellido, $carrera);
+				$data["titulo"] = "Alumnos";
+				$this->index();
+			endif;
 		}
 		
 		public function modificar($carnet){
@@ -52,7 +61,20 @@
 			$nombre = $_POST['nombre'];
 			$apellido = $_POST['apellido'];
 			$carrera = $_POST['carrera'];
-
+			if(!preg_match("/^([a-zA-Z]{2}+[0-9]{6})$/",$carnet)):
+				$mensaje = "Formato de carnet incorrecto";
+				echo "<script type='text/javascript'>alert('$mensaje');</script>";
+				$this->index();
+			elseif(!preg_match("/^([0-9]{8}-[0-9]{1})$/",$dui)):
+				$mensaje = "Formato de DUI incorrecto";
+				echo "<script type='text/javascript'>alert('$mensaje');</script>";
+				$this->index();
+			else:
+				$alumnos = new Alumnos_model();
+				$alumnos->insertar($carnet, $dui, $nombre, $apellido, $carrera);
+				$data["titulo"] = "Alumnos";
+				$this->index();
+			endif;
 			$alumnos = new Alumnos_model();
 			$alumnos->modificar($carnet, $dui, $nombre, $apellido, $carrera);
 			$data["titulo"] = "Alumnos";
