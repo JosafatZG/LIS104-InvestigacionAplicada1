@@ -8,6 +8,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title><?php echo $data["titulo"]; ?></title>
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<script src="assets/js/bootstrap.min.js" ></script>
 	
 	</head>
 	
@@ -18,7 +20,12 @@
 			
 			<form id="nuevo" name="nuevo" method="POST" action="index.php?c=alumnos&a=actualizar" autocomplete="off">
 				
-				<input type="hidden" id="id" name="id" value="<?php echo $data["carnet"]; ?>" />
+				<input type="hidden" id="carnet" name="carnet" value="<?php echo $data["carnet"]; ?>" />
+
+				<div class="form-group">
+					<label for="carnet">Carnet</label>
+					<input type="text" class="form-control" id="carnet" name="carnet" value="<?php echo $data["alumnos"]["carnet"]?>" />
+				</div>
 				
 				<div class="form-group">
 					<label for="dui">DUI</label>
@@ -37,7 +44,7 @@
 				
 				<div class="form-group">
 					<label for="carrera">Carrera</label>
-					<input type="text" class="form-control" id="carrera" name="carrera" value="<?php echo $data["akumnos"]["carrera"]?>" />
+					<input type="text" class="form-control" id="carrera" name="carrera" value="<?php echo $data["alumnos"]["carrera"]?>" />
 				</div>
 				
 				<button id="guardar" name="guardar" type="submit" class="btn btn-primary">Guardar</button>

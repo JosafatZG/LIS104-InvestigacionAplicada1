@@ -3,12 +3,11 @@
 	class AlumnosController {
 		
 		public function __construct(){
-			require_once "models/AlumnoModel.php";
+			require_once "models/AlumnosModel.php";
 		}
 		
 		public function index(){
-			
-			
+
 			$alumnos = new Alumnos_model();
 			$data["titulo"] = "Alumnos";
 			$data["alumnos"] = $alumnos->get_alumnos();
@@ -29,7 +28,6 @@
 			$nombre = $_POST['nombre'];
 			$apellido = $_POST['apellido'];
 			$carrera = $_POST['carrera'];
-		
 			
 			$alumnos = new Alumnos_model();
 			$alumnos->insertar($carnet, $dui, $nombre, $apellido, $carrera);
@@ -42,7 +40,7 @@
 			$alumnos = new Alumnos_model();
 			
 			$data["carnet"] = $carnet;
-			$data["alumnos"] = $alumnos->get_alumnos($carnet);
+			$data["alumnos"] = $alumnos->get_alumno($carnet);
 			$data["titulo"] = "Alumnos";
 			require_once "views/alumnos/alumnos_modifica.php";
 		}

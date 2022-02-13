@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title><?php echo $data["titulo"]; ?></title>
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<script src="assets/js/bootstrap.min.js" ></script>
 		
 	</head>
 	
@@ -22,7 +24,7 @@
 							<th>Carnet</th>
 							<th>DUI</th>
 							<th>Nombre</th>
-							<th>APellido</th>
+							<th>Apellido</th>
 							<th>Carrera</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
@@ -37,13 +39,12 @@
 							echo "<td>".$dato["nombre"]."</td>";
 							echo "<td>".$dato["apellido"]."</td>";
 							echo "<td>".$dato["carrera"]."</td>";
-							echo "<td><a href='index.php?c=alumnos&a=modificar&id=".$dato["carnet"]."' class='btn btn-warning'>Modificar</a></td>";
-							echo "<td><a href='index.php?c=alumnos&a=eliminar&id=".$dato["carnet"]."' class='btn btn-danger'>Eliminar</a></td>";
+							echo "<td><a href='index.php?c=alumnos&a=modificar&carnet=".$dato["carnet"]."' class='btn btn-warning'>Modificar</a></td>";
+							echo "<td><a href='index.php?c=alumnos&a=eliminar&carnet=".$dato["carnet"]."' class='btn btn-danger'>Eliminar</a></td>";
 							echo "</tr>";
 						}
 						?>
 					</tbody>
-					
 				</table>
 			</div>
 		</div>

@@ -1,15 +1,14 @@
 <?php
 
-class alumnos_model {
+class Alumnos_model {
 		
     private $db;
-    private $vehiculos;
+    private $alumnos;
     
     public function __construct(){
         $this->db = Conectar::conexion();
         $this->alumnos = array();
     }
-
 
     public function get_alumnos()
 		{
@@ -34,12 +33,12 @@ class alumnos_model {
 		}
 		
 		public function eliminar($carnet){
-			
+
 			$resultado = $this->db->query("DELETE FROM alumnos WHERE carnet = '$carnet'");
 			
 		}
 		
-		public function get_vehiculo($carnet)
+		public function get_alumno($carnet)
 		{
 			$sql = "SELECT * FROM alumnos WHERE carnet='$carnet' LIMIT 1";
 			$resultado = $this->db->query($sql);
@@ -48,7 +47,4 @@ class alumnos_model {
 			return $row;
 		}
 	} 
-
-
-
 ?>

@@ -2,8 +2,8 @@
 	
 	function cargarControlador($controlador){
 		
-		$nombreControlador = ucwords($controlador)."Controller";
-		$archivoControlador = 'controllers/'.ucwords($controlador).'.php';
+		$nombreControlador = ucwords(strtolower($controlador))."Controller";
+		$archivoControlador = 'controllers/'.ucwords(strtolower($controlador)).'.php';
 		
 		if(!is_file($archivoControlador)){
 			
@@ -15,13 +15,13 @@
 		return $control;
 	}
 	
-	function cargarAccion($controller, $accion, $id = null){
+	function cargarAccion($controller, $accion, $carnet = null){
 		
 		if(isset($accion) && method_exists($controller, $accion)){
-			if($id == null){
+			if($carnet == null){
 				$controller->$accion();
 				} else {
-				$controller->$accion($id);
+				$controller->$accion($carnet);
 			}
 			} else {
 			$controller->ACCION_PRINCIPAL();
